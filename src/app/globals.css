@@ -2,14 +2,35 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #09090b;
+
+  /* primary brand color */
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+
+  /* //neutral/muted ui elements */
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+
+  /* 4. Form/Border Colors */
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+
+  --radius: 0.5rem;
 }
 
 @theme inline {
+  /* We map our Variables to Tailwind names here */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+
+  --radius-lg: var(--radius);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +40,18 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Dark Mode Overrides */
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --border: #27272a;
+  --input: #27272a;
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 }
