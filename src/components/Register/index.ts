@@ -1,2 +1,3 @@
 export {default as RegisterHeader} from "./RegisterHeader"
 export {default as RegisterForm} from "./RegisterForm"
+export {default as RegisterPage} from "./RegisterPage"
